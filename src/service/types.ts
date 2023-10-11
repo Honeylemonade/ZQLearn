@@ -1,34 +1,21 @@
+export class Card {
+    public id: string
+    public firstClass: string
+    public secondClass: string
+    public thirdClass: string
+    public cardTitle: string
+    public isFamiliar: boolean
+    public isStar: boolean
+    public description: string
 
-export class Article {
-    public id: string = crypto.randomUUID()
-    public title: string
-    public content: string
-    public createTime: Date = new Date()
-    public updateTime: Date = new Date()
-
-    constructor(title: string, content: string) {
-        this.title = title
-        this.content = content
-    }
-}
-
-export enum WordState {
-    KNOWED, UNKNOWED
-}
-
-export class Word {
-    public id: string = crypto.randomUUID()
-    public word: string
-    public descrptions: string[]
-    public sentences: string[]
-    public state: WordState
-    public createTime: Date = new Date()
-    public updateTime: Date = new Date()
-
-    constructor(word: string, descrption: string[], sentences: string[]) {
-        this.word = word
-        this.descrptions = descrption
-        this.sentences = sentences
-        this.state = WordState.UNKNOWED
+    constructor(id: string, firstClass: string, secondClass: string, thirdClass: string, cardTitle: string, isFamiliar: boolean, isStar: boolean, description: string) {
+        this.id = id
+        this.firstClass = firstClass
+        this.secondClass = secondClass
+        this.thirdClass = thirdClass
+        this.cardTitle = cardTitle
+        this.isFamiliar = isFamiliar
+        this.isStar = isStar
+        this.description = description
     }
 }

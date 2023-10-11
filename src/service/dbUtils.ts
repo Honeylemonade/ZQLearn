@@ -1,18 +1,16 @@
-import { Article, Word } from './types'
+import { Card } from './types'
 import { Low } from 'lowdb'
 import { JSONFile } from 'lowdb/node'
 
 // TODO 提取环境变量
-const DB_PATH = "./db.json"
+const DB_PATH = "./ZQlearn.json"
 
 type Schema = {
-    articles: Article[],
-    words: Word[]
+    cards: Card[]
 }
 
 const initData: Schema = {
-    articles: [],
-    words: []
+    cards: []
 }
 
 const adapter = new JSONFile<Schema>(DB_PATH)
