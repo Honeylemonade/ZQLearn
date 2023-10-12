@@ -28,3 +28,15 @@ export function getCardByFilter(firstClass: string, secondClass: string, thirdCl
         .filter(e => { return e.thirdClass == thirdClass || thirdClass == "全部" })
         .filter(e => { return cardType == "all" ? true : e.isFamiliar == false })
 }
+
+export function updateCardDescription(card: Card) {
+    let targetCard = db.data.cards.find(e => e.id === card.id)
+    if (targetCard == undefined) {
+        console.error("card 不存在")
+    } else {
+        targetCard.description = card.description
+        targetCard.isFamiliar = card.isFamiliar
+        targetCard.isStar = card.isStar
+    }
+    db.write()
+}
