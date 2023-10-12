@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router'
 const router = useRouter()
 
-const value = ref(0)
+const value = ref(1)
 </script>
 
 

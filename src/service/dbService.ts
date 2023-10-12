@@ -7,63 +7,24 @@ export function getCards(): Card[] {
 }
 
 
-// export function addArticle(article: Article) {
-//     db.data.articles.unshift(article)
-//     db.write()
-// }
+export function getAllFirstClass(): string[] {
+    return Array.from(new Set(db.data.cards.map(e => { return e.firstClass })))
+}
 
-// export function getArticles() {
-//     return db.data.articles
-// }
+export function getAllSecondClass(firstClass: string): string[] {
+    return Array.from(new Set(db.data.cards.filter(e => { return e.firstClass == firstClass || firstClass == "全部" }).map(e => { return e.secondClass })))
+}
 
-// export function getArticle(id: string): Article {
-//     let res = db.data.articles.find(e => e.id === id)
-//     if (res == undefined) {
-//         return new Article("", "")
-//     }
-//     return res
-// }
+export function getAllThridClass(firstClass: string, secondClass: string): string[] {
+    return Array.from(new Set(db.data.cards
+        .filter(e => { return e.firstClass == firstClass || firstClass == "全部" })
+        .filter(e => { return e.secondClass == secondClass || secondClass == "全部" })
+        .map(e => { return e.thirdClass })))
+}
 
-// export function updateArticle(article: Article) {
-//     let art = db.data.articles.find(e => e.id === article.id)
-//     if (art == undefined) {
-//         console.error("不存在目标文章");
-//     } else {
-//         art.title = article.title
-//         art.content = article.content
-//         art.updateTime = new Date()
-//     }
-//     db.write()
-// }
-
-// export function deleteArticleById(id: string) {
-//     db.data.articles.splice(db.data.articles.findIndex(e => e.id === id), 1)
-//     db.write()
-// }
-
-// export function addWord(word: Word) {
-//     db.data.words.unshift(word)
-//     db.write()
-// }
-
-// export function getWords() {
-//     return db.data.words
-// }
-
-// export function getUnknownWords() {
-//     return db.data.words.filter(e => e.state == WordState.UNKNOWED)
-// }
-
-// export function getDescrptionsByWord(word: string): string[] {
-//     let res = db.data.words.find(e => e.word === word)
-//     if (res != undefined) {
-//         return res.descrptions
-//     } else {
-//         return ["未找到"]
-//     }
-// }
-
-// export function deleteWordByWord(word: string) {
-//     db.data.words.splice(db.data.words.findIndex(e => e.word === word), 1)
-//     db.write()
-// }
+export function getCardByFilter(firstClass: string, secondClass: string, thirdClass: string, cardType: string): Card[] {
+    return db.data.cards.filter(e => { return e.firstClass == firstClass || firstClass == "全部" })
+        .filter(e => { return e.secondClass == secondClass || secondClass == "全部" })
+        .filter(e => { return e.thirdClass == thirdClass || thirdClass == "全部" })
+        .filter(e => { return cardType == "all" ? true : e.isFamiliar == false })
+}

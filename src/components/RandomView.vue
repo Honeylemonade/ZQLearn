@@ -4,7 +4,7 @@ import CardSelector from './CardSelector.vue'
 
 
 <template>
-    <div>
+    <div style="width: 100%;">
         <CardSelector></CardSelector>
     </div>
     <div>随机抽取</div>

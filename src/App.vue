@@ -4,10 +4,12 @@ import { } from './service/dbUtils'
 </script>
 
 <template>
-  <v-row no-gutters justify="center">
-    <router-view></router-view>
-  </v-row>
-  <Navigation></Navigation>
+  <div style="max-width: 600px;margin: 0 auto;">
+    <v-row no-gutters justify="center">
+      <router-view></router-view>
+    </v-row>
+    <Navigation></Navigation>
+  </div>
 </template>
 
 <style scoped>
