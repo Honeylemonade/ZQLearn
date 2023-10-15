@@ -1,5 +1,6 @@
 html body {
     min-height: 100vh;
+    background: linear-gradient(#079589, rgb(251, 251, 251));
 }
 
 * {

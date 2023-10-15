@@ -13,15 +13,14 @@ const resultList = ref<Card[]>()
         <CardSelector @list-change="(list) => resultList = list"></CardSelector>
     </div>
     <div>
-        <div>
-            <v-virtual-scroll :height="`calc(80vh-200px)`" :items="resultList">
-                <template v-slot:default="{ item }">
-                    <div style="padding: 10px 10px;">
-                        <CardView :card="item"></CardView>
-                    </div>
-                </template>
-            </v-virtual-scroll>
-        </div>
+
+        <v-virtual-scroll height="80vh" :items="resultList">
+            <template v-slot:default="{ item }">
+                <div style="padding: 10px 10px;">
+                    <CardView :myCard="item"></CardView>
+                </div>
+            </template>
+        </v-virtual-scroll>
     </div>
 </template>
 
