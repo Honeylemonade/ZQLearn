@@ -12,10 +12,9 @@ const resultList = ref<Card[]>()
     <div style="width: 100%;height: 100px;">
         <CardSelector @list-change="(list) => resultList = list"></CardSelector>
     </div>
-    <div style="height: 100px;"></div>
     <div>
         <div>
-            <v-virtual-scroll :items="resultList">
+            <v-virtual-scroll :height="`calc(80vh-200px)`" :items="resultList">
                 <template v-slot:default="{ item }">
                     <div style="padding: 10px 10px;">
                         <CardView :card="item"></CardView>

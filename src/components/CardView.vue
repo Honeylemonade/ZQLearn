@@ -36,14 +36,16 @@ function color() {
                 <v-divider thickness="1.5"></v-divider>
             </div>
 
-            <v-textarea variant="outlined" v-model="card.description" label="答案"
+            <v-textarea :rows="10" class="description" variant="outlined" v-model="card.description" label="答案"
                 @update:model-value="updateCardDescription(card)"></v-textarea>
             <v-row justify="center">
                 <v-col cols="4">
-                    <v-btn color="green" block rounded="xl" size="x-large">过</v-btn>
+                    <v-btn color="green" block rounded="xl" size="x-large">
+                        <v-icon start icon="mdi-check"></v-icon>过</v-btn>
                 </v-col>
                 <v-col cols="4">
-                    <v-btn color="red" block rounded="xl" size="x-large">不熟</v-btn>
+                    <v-btn color="red" block rounded="xl" size="x-large">
+                        <v-icon start icon="mdi-close"></v-icon>不熟</v-btn>
                 </v-col>
             </v-row>
         </v-card-text>
@@ -53,6 +55,14 @@ function color() {
 <style scoped>
 .card-text {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.description {
+    color: white;
+}
+
+.description:hover {
+    color: black;
 }
 
 /* .v-card {
