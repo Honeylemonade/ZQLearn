@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router'
 const router = useRouter()
 
-const value = ref(1)
+const value = ref(0)
 </script>
 
 
@@ -11,11 +11,11 @@ const value = ref(1)
     <v-layout class="overflow-visible" style="height: 56px;">
         <v-bottom-navigation v-model="value" color="teal" grow>
             <v-btn @click='router.push("/RandomView")'>
-                <v-icon>mdi-history</v-icon>
+                <v-icon>mdi-alpha-r-box-outline</v-icon>
                 随机抽取
             </v-btn>
             <v-btn @click='router.push("/ListView")'>
-                <v-icon>mdi-heart</v-icon>
+                <v-icon>mdi-format-list-bulleted</v-icon>
                 卡片列表
             </v-btn>
         </v-bottom-navigation>

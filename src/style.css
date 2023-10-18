@@ -1,6 +1,9 @@
 html body {
     min-height: 100vh;
-    background: linear-gradient(#079589, rgb(251, 251, 251));
+    /* background: linear-gradient(#ddfffc, rgb(251, 251, 251)); */
+    background-image: url(./assets/bg4.png);
+    background-repeat: repeat;
+    background-size:100px
 }
 
 * {

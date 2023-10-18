@@ -9,18 +9,23 @@ const resultList = ref<Card[]>()
 
 
 <template>
-    <div style="width: 100%;height: 100px;">
+    <div style="width: 100%;">
         <CardSelector @list-change="(list) => resultList = list"></CardSelector>
     </div>
     <div>
 
-        <v-virtual-scroll height="80vh" :items="resultList">
+        <div style="padding-bottom: 20px;" v-for="item in resultList">
+            <CardView :myCard="item"></CardView>
+        </div>
+
+
+        <!-- <v-virtual-scroll :items="resultList">
             <template v-slot:default="{ item }">
                 <div style="padding: 10px 10px;">
                     <CardView :myCard="item"></CardView>
                 </div>
             </template>
-        </v-virtual-scroll>
+        </v-virtual-scroll> -->
     </div>
 </template>
 

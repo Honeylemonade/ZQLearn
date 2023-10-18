@@ -65,34 +65,39 @@ function refresh() {
 
 
 <template>
-    <v-container>
-        <v-row>
-            <v-col cols="3">
-                <v-select style="font-weight: bolder;" variant="outlined" density="compact"
-                    v-model="selectorMap.firstClassSelector" label="一级选项"
-                    :items="selectorItemListMap.firstClassSelectorList"
-                    @update:model-value="refresh(), selectorMap.secondClassSelector = '全部', selectorMap.thridClassSelector = '全部'"></v-select>
-            </v-col>
-            <v-col cols="3">
-                <v-select style="font-weight: bolder;" variant="outlined" density="compact"
-                    v-model="selectorMap.secondClassSelector" label="二级选项"
-                    :items="selectorItemListMap.secondClassSelectorList"
-                    @update:model-value="refresh(), selectorMap.thridClassSelector = '全部'"></v-select>
-            </v-col>
-            <v-col cols="3">
-                <v-select style="font-weight: bolder;" variant="outlined" density="compact"
-                    v-model="selectorMap.thridClassSelector" label="三级选项"
-                    :items="selectorItemListMap.thridClassSelectorList" @update:model-value="refresh()"></v-select>
-            </v-col>
-            <v-col cols="3">
-                <v-radio-group style="font-weight: bolder;" v-model:model-value="selectorMap.isFamiliar"
-                    @update:model-value="refresh()">
-                    <v-radio label="全部" value="all"></v-radio>
-                    <v-radio label="不熟悉" value="unFamiliar"></v-radio>
-                </v-radio-group>
-            </v-col>
-        </v-row>
-    </v-container>
+    <v-card style="margin: 20px 0;">
+        <v-container>
+            <v-row>
+                <v-col cols="3">
+                    <v-select class="select" variant="outlined" density="compact" v-model="selectorMap.firstClassSelector"
+                        label="一级选项" :items="selectorItemListMap.firstClassSelectorList"
+                        @update:model-value="refresh(), selectorMap.secondClassSelector = '全部', selectorMap.thridClassSelector = '全部'"></v-select>
+                </v-col>
+                <v-col cols="3">
+                    <v-select class="select" variant="outlined" density="compact" v-model="selectorMap.secondClassSelector"
+                        label="二级选项" :items="selectorItemListMap.secondClassSelectorList"
+                        @update:model-value="refresh(), selectorMap.thridClassSelector = '全部'"></v-select>
+                </v-col>
+                <v-col cols="3">
+                    <v-select class="select" variant="outlined" density="compact" v-model="selectorMap.thridClassSelector"
+                        label="三级选项" :items="selectorItemListMap.thridClassSelectorList"
+                        @update:model-value="refresh()"></v-select>
+                </v-col>
+                <v-col cols="3">
+                    <v-radio-group style="font-weight: bolder;" v-model:model-value="selectorMap.isFamiliar"
+                        @update:model-value="refresh()">
+                        <v-radio label="全部" value="all"></v-radio>
+                        <v-radio label="不熟悉" value="unFamiliar"></v-radio>
+                    </v-radio-group>
+                </v-col>
+            </v-row>
+        </v-container>
+    </v-card>
 </template>
 
-<style scoped></style>
+<style scoped>
+.select {
+    font-weight: bolder;
+    margin-top: 15%
+}
+</style>

@@ -21,26 +21,31 @@ function color() {
 <template>
     <!-- variant="tonal" :color="color()" -->
     <v-card style="width: 600px;">
-        <v-breadcrumbs :items="[props.myCard.firstClass, myCard.secondClass, myCard.thirdClass]"></v-breadcrumbs>
+        <v-breadcrumbs :items="[props.myCard.firstClass, myCard.secondClass, myCard.thirdClass]">
+            <template v-slot:divider>
+                <v-icon icon="mdi-chevron-right"></v-icon>
+            </template>
+
+        </v-breadcrumbs>
         <v-card-text class="card-text">
             <div :style="color()">
                 <div>
-                    <v-btn v-if="myCard.isStar" style=" margin: auto;" variant="text" icon="mdi-star" color="yellow"
+                    <v-btn v-if="myCard.isStar" class="star" variant="text" icon="mdi-star" color="yellow"
                         @click="myCard.isStar = false, updateCardDescription(myCard)"></v-btn>
-                    <v-btn v-if="!myCard.isStar" style=" margin: auto;" variant="text" icon="mdi-star" color="grey"
+                    <v-btn v-if="!myCard.isStar" class="star" variant="text" icon="mdi-star" color="grey"
                         @click="myCard.isStar = true, updateCardDescription(myCard)"></v-btn>
                     <span class="text-h5" style="font-weight: bolder;margin: auto;">
                         {{ myCard.cardTitle }}
                     </span>
                 </div>
-                <div style="color: green;" v-if="myCard.isFamiliar">
-                    熟悉
-                </div>
-                <div style="color: red;" v-if="!myCard.isFamiliar">
-                    不熟悉
-                </div>
-            </div>
 
+            </div>
+            <div style="color: green;" v-if="myCard.isFamiliar">
+                熟悉
+            </div>
+            <div style="color: red;" v-if="!myCard.isFamiliar">
+                不熟悉
+            </div>
             <div style="padding: 10px 0px ;">
                 <v-divider thickness="1.5"></v-divider>
             </div>
@@ -69,11 +74,18 @@ function color() {
 }
 
 .description {
-    color: white;
+    color:rgba(255,255,255,0.0);
+    background: url(../assets/a3.png) center 0 no-repeat;
+    background-size:300px;
 }
 
 .description:hover {
     color: black;
+    background:none
+}
+
+.star {
+    margin-bottom: 9px;
 }
 
 /* .v-card {
